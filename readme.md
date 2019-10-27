@@ -19,9 +19,10 @@ import rpi-version as rv
 
 # Change Log
 
----
-:2019 Oct 27: init
----
+| Date        | Version | Notes      |
+|-------------|---------|------------|
+| 2019 Oct 27 | 0.0.1   | init       |
+
 
 # MIT License
 
