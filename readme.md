@@ -1,6 +1,31 @@
-MIT License
+# Linux RPi Information
 
-Copyright (c) 2019 Kevin J. Walchko
+**work in progress**
+
+Answers:
+
+- is this a raspberry pi?
+- is this a raspbian or ubuntu distro?
+- is this distro based on debian?
+- reads `/proc/cpuinfo`
+- reads `/etc/os-release`
+
+## Example
+
+```
+import rpi-version as rv
+
+```
+
+# Change Log
+
+---
+:2019 Oct 27: init
+---
+
+# MIT License
+
+**Copyright (c) 2019 Kevin J. Walchko**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
