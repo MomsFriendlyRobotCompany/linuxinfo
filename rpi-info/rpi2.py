@@ -94,18 +94,22 @@ def flag(n):
 
 def find(key, info):
     match = re.search('^{}\s+:\s+(\w+)$'.format(key), info, flags=(re.MULTILINE | re.IGNORECASE))
+    if match is None:
+        return None
     return match.group(1)
 
 
 def pi_info():
-    if not is_pi():
-        return None
+#     if not is_pi():
+#         return None
 
     cpuinfo = read('/proc/cpuinfo')
     if cpuinfo is None:
         return None
 
     n = find("Revision", cpuinfo)
+    if n is None:
+        return None
     
     return RPiInfo(
         name(n),
