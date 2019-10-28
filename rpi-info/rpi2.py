@@ -82,15 +82,15 @@ def flag(n):
     val = 0b1 & (n >> 23)
     return f[val]
 
-# def decode(n):
-#     return RPi(
-#         name(n),
-#         processor(n),
-#         memory(n),
-#         revision(n),
-#         manufacturer(n),
-#         flag(n)
-#     )
+def decode(n):
+    return RPiInfo(
+        name(n),
+        processor(n),
+        memory(n),
+        revision(n),
+        manufacturer(n),
+        flag(n)
+    )
 
 def find(key, info):
     match = re.search('^{}\s+:\s+(\w+)$'.format(key), info, flags=(re.MULTILINE | re.IGNORECASE))
@@ -100,9 +100,6 @@ def find(key, info):
 
 
 def pi_info():
-#     if not is_pi():
-#         return None
-
     cpuinfo = read('/proc/cpuinfo')
     if cpuinfo is None:
         return None
@@ -110,12 +107,5 @@ def pi_info():
     n = find("Revision", cpuinfo)
     if n is None:
         return None
-    
-    return RPiInfo(
-        name(n),
-        processor(n),
-        memory(n),
-        revision(n),
-        manufacturer(n),
-        flag(n)
-    )
+
+    return decode(n)

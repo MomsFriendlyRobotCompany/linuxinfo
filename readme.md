@@ -5,6 +5,7 @@
 Answers:
 
 - is this a raspberry pi?
+    - functions return `None` on error
 - is this a raspbian or ubuntu distro?
 - is this distro based on debian?
 - reads `/proc/cpuinfo` for revision code
@@ -18,16 +19,22 @@ decodes that number.
 
 ```
 RPiInfo = namedtuple("RPiInfo", "type processor memory revision manufacturer flag")
+
+LinuxInfo = namedtuple("LinuxInfo", "distro distro_pretty debian_based version version_codename")
 ```
 
 ## Example
 
 ```
-from rpi-info pi_info
+from rpi-info import pi_info, decode
+from rpi-info import linux_info()
 
-print(pi_info(0xa020a0))  # compute module 3
-print(pi_info(0xa22042))  # Pi2B
-print(pi_info(0xc03111))  # Pi4B
+# given a revision code, it decodes it (see below)
+print(decode(0xa020a0))  # compute module 3
+print(decode(0xa22042))  # Pi2B
+print(decode(0xc03111))  # Pi4B
+
+print(pi_info())  # reads /proc/cpuinfo and get revision code
 ```
 
 ```
@@ -40,7 +47,8 @@ RPiInfo(type='4B', processor='BCM2711', memory='4GB', revision=1, manufacturer='
 
 | Date        | Version | Notes      |
 |-------------|---------|------------|
-| 2019 Oct 27 | 0.0.1   | init       |
+| 2019 Oct 27 | 0.0.3   | simple clean up |
+| 2019 Oct 27 | 0.0.1   | init            |
 
 
 # MIT License
