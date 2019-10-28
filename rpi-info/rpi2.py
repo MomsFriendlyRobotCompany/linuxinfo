@@ -14,7 +14,7 @@ processor. Decode the revision code using the information below, or cat
 /sys/firmware/devicetree/base/model
 """
 
-RPi = namedtuple("RPi", "type processor memory revision manufacturer flag")
+RPiInfo = namedtuple("RPiInfo", "type processor memory revision manufacturer flag")
 
 def revision(n):
     return 0b1111 & n
@@ -107,7 +107,7 @@ def pi_info():
 
     n = find("Revision", cpuinfo)
     
-    return RPi(
+    return RPiInfo(
         name(n),
         processor(n),
         memory(n),
