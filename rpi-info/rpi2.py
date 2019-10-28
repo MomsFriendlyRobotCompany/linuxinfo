@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 from collections import namedtuple
+import re
+from .helpers import read
 
 """
 https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md
@@ -80,7 +82,31 @@ def flag(n):
     val = 0b1 & (n >> 23)
     return f[val]
 
-def decode(n):
+# def decode(n):
+#     return RPi(
+#         name(n),
+#         processor(n),
+#         memory(n),
+#         revision(n),
+#         manufacturer(n),
+#         flag(n)
+#     )
+
+def find(key, info):
+    match = re.search('^{}\s+:\s+(\w+)$'.format(key), info, flags=(re.MULTILINE | re.IGNORECASE))
+    return match.group(1)
+
+
+def pi_info():
+    if not is_pi():
+        return None
+
+    cpuinfo = read('/proc/cpuinfo')
+    if cpuinfo is None:
+        return None
+
+    n = find("Revision", cpuinfo)
+    
     return RPi(
         name(n),
         processor(n),
