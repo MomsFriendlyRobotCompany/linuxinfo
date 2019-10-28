@@ -1,5 +1,5 @@
 
-from .rpi import pi_info, is_pi, PiInfo
+from .rpi2 import pi_info, PiInfo
 from .linux import linux_info, LinuxInfo
 
 
