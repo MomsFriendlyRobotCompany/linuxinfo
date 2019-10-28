@@ -7,14 +7,33 @@ Answers:
 - is this a raspberry pi?
 - is this a raspbian or ubuntu distro?
 - is this distro based on debian?
-- reads `/proc/cpuinfo`
-- reads `/etc/os-release`
+- reads `/proc/cpuinfo` for revision code
+- reads `/etc/os-release` for linux OS info
+
+## Info
+
+Reads the [revision code](https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md)
+which encodes a bunch of information as `uuuuuuuuFMMMCCCCPPPPTTTTTTTTRRRR`. This library
+decodes that number.
+
+```
+RPiInfo = namedtuple("RPiInfo", "type processor memory revision manufacturer flag")
+```
 
 ## Example
 
 ```
-import rpi-version as rv
+from rpi-info pi_info
 
+print(pi_info(0xa020a0))  # compute module 3
+print(pi_info(0xa22042))  # Pi2B
+print(pi_info(0xc03111))  # Pi4B
+```
+
+```
+RPiInfo(type='CM3', processor='BCM2837', memory='1GB', revision=0, manufacturer='Sony UK', flag='new-style revision')
+RPiInfo(type='2B', processor='BCM2837', memory='1GB', revision=2, manufacturer='Embest', flag='new-style revision')
+RPiInfo(type='4B', processor='BCM2711', memory='4GB', revision=1, manufacturer='Sony UK', flag='new-style revision')
 ```
 
 # Change Log
