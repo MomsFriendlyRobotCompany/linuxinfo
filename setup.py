@@ -12,7 +12,7 @@ VERSION = get_pkg_version('linuxinfo/__init__.py')
 PACKAGE_NAME = 'linuxinfo'
 BuildCommand.pkg = PACKAGE_NAME
 BuildCommand.py2 = False  # not supporting python2 anymore
-# BuildCommand.test = False  # don't do tests
+# BuildCommand.test = False  # don't do tests?
 PublishCommand.pkg = PACKAGE_NAME
 PublishCommand.version = VERSION
 SetGitTag.version = VERSION
@@ -33,23 +33,11 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Operating System :: Unix',
         'Operating System :: POSIX :: Linux',
-        # 'Operating System :: MacOS :: MacOS X',
         'Operating System :: POSIX',
         'Topic :: Scientific/Engineering',
-        # 'Topic :: Scientific/Engineering :: Artificial Intelligence',
-        # 'Topic :: Scientific/Engineering :: Image Recognition',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
     install_requires=[
-        # 'pyyaml',         # config files
-        # 'psutil',
-        # 'simplejson',     # config files
-        # 'msgpack',        # efficient message serialization through zmq
-        # 'pyzmq',          # connecting to different processes and computers
-        # # 'bjoern',         # http server, multiple connections
-        # # 'the_collector',  # saving data
-        # 'colorama',       # log messages
-        # 'numpy',          # basic image stuff ... remove/optional?
         'build_utils'     # installing and building the library
     ],
     url="https://github.com/MomsFriendlyRobotCompany/{}".format(PACKAGE_NAME),
@@ -60,21 +48,5 @@ setup(
         'publish': PublishCommand,
         'make': BuildCommand,
         'tag': SetGitTag
-    },
-    # scripts=[
-    #     'bin/geckocore.py',
-    #     'bin/pycore.py',
-    #     'bin/geckolaunch.py',
-    #     # 'bin/mjpeg_server.py',  # why? use opencvutils instead
-    #     # 'bin/bag_play.py',
-    #     # 'bin/bag_record.py',
-    #     # 'bin/camera_calibrate.py',
-    #     # 'bin/image_view.py',
-    #     # 'bin/service.py',  # fix
-    #     'bin/gecko_log_display.py',
-    #     'bin/geckotopic.py',
-    #     'bin/twist_keyboard.py'
-    #     # 'bin/video.py',
-    #     # 'bin/webserver.py'
-    # ]
+    }
 )
