@@ -12,7 +12,8 @@ def str2dict(ss, delim):
     for line in o:
         try:
             s = line.split(delim)
-            d[s[0]] = s[1]
+            # still may have some " characters to remove
+            d[s[0]] = s[1].replace('"', '')
         except IndexError:
             # sometimes there is an empty line, so you can't
             # split '' into 2 substrings

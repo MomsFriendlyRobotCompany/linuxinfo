@@ -7,9 +7,9 @@ from build_utils import SetGitTag
 from build_utils import get_pkg_version
 
 
-VERSION = get_pkg_version('rpi-info/__init__.py')
+VERSION = get_pkg_version('linuxinfo/__init__.py')
 
-PACKAGE_NAME = 'rpi-info'
+PACKAGE_NAME = 'linuxinfo'
 BuildCommand.pkg = PACKAGE_NAME
 BuildCommand.py2 = False  # not supporting python2 anymore
 # BuildCommand.test = False  # don't do tests

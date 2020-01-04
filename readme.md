@@ -1,4 +1,4 @@
-# Linux RPi Information
+# Linux Information
 
 **work in progress**
 
@@ -17,19 +17,21 @@ Reads the [revision code](https://www.raspberrypi.org/documentation/hardware/ras
 which encodes a bunch of information as `uuuuuuuuFMMMCCCCPPPPTTTTTTTTRRRR`. This library
 decodes that number.
 
-```
+```python
 RPiInfo = namedtuple("RPiInfo", "type processor memory revision manufacturer flag")
-
 LinuxInfo = namedtuple("LinuxInfo", "distro distro_pretty debian_based version version_codename")
 ```
 
 ## Example
 
-```
-from rpi-info import pi_info, decode
-from rpi-info import linux_info()
+```python
+from linuxinfo import linux_info()
+from linuxinfo import pi_info
+from linuxinfo import RPiInfo, LinuxInfo  # not sure you need these
+from linuxinfo.rpi import decode          # normally you don't use this!
 
-# given a revision code, it decodes it (see below)
+# given a revision code, it decodes it (see below). Normally you
+# wouldn't do this ... this is just a test
 print(decode(0xa020a0))  # compute module 3
 print(decode(0xa22042))  # Pi2B
 print(decode(0xc03111))  # Pi4B
@@ -47,6 +49,7 @@ RPiInfo(type='4B', processor='BCM2711', memory='4GB', revision=1, manufacturer='
 
 | Date        | Version | Notes      |
 |-------------|---------|------------|
+| 2020 Dec 4  | 0.1.0   | changed name because it does more |
 | 2019 Oct 27 | 0.0.3   | simple clean up |
 | 2019 Oct 27 | 0.0.1   | init            |
 

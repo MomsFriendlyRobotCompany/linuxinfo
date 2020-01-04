@@ -1,5 +1,6 @@
 
-from .rpi2 import pi_info, RPiInfo, decode
+# from .rpi import pi_info, RPiInfo, decode
+from .rpi import pi_info, RPiInfo
 from .linux import linux_info, LinuxInfo
 
 
