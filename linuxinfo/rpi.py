@@ -3,6 +3,8 @@
 from collections import namedtuple
 import re
 from .helpers import read
+from ast import literal_eval
+
 
 """
 https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md
@@ -105,6 +107,10 @@ def pi_info():
         return None
 
     n = find("Revision", cpuinfo)
+
+    # need to convert the text string to an integer to process it
+    n = literal_eval("0x" + n)
+
     if n is None:
         return None
 
