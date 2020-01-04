@@ -103,10 +103,13 @@ def find(key, info):
 
 def pi_info():
     cpuinfo = read('/proc/cpuinfo')
+    # print(">> ", cpuinfo)
     if cpuinfo is None:
         return None
 
     n = find("Revision", cpuinfo)
+    if n is None:
+        return None
 
     # need to convert the text string to an integer to process it
     n = literal_eval("0x" + n)
