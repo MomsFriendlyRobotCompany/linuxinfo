@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "linuxinfo"
-version = "0.1.0"
+version = "0.1.1"
 description = "A python library to get linux/raspberry pi info"
 authors = ["walchko <walchko@users.noreply.github.com>"]
 readme = "readme.md"
