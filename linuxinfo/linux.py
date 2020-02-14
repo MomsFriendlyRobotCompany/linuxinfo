@@ -22,8 +22,8 @@ def str2dict(ss, delim):
 
 
 def linux_info():
-    if un.sysname != 'Linux':
-        return None
+    # if un.sysname != 'Linux':
+    #     return None
 
     osr = read('/etc/os-release')
     if osr is None:

@@ -17,4 +17,4 @@ def test_decode():
     ]
 
     for (d, r) in data:
-        assert d == r, "Error on {} == {}".format(d,r)
+        assert d == r, f"Error on {d} == {r}"

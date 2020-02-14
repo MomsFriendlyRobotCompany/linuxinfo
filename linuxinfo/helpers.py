@@ -1,6 +1,6 @@
-import os
-
-un = os.uname()
+# import os
+#
+# un = os.uname()
 
 
 def read(filename):
