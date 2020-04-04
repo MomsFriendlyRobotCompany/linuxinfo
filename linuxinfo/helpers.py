@@ -1,7 +1,9 @@
-# import os
-#
-# un = os.uname()
-
+# -*- coding: utf-8 -*-
+##############################################
+# The MIT License (MIT)
+# Copyright (c) 2019 Kevin Walchko
+# see LICENSE for full details
+##############################################
 
 def read(filename):
     try:
