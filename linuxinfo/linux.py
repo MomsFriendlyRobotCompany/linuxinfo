@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+##############################################
+# The MIT License (MIT)
+# Copyright (c) 2019 Kevin Walchko
+# see LICENSE for full details
+##############################################
 from .helpers import read
 from collections import namedtuple
 
