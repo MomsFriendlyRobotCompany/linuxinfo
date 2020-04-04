@@ -1,5 +1,10 @@
 # Linux Information
 
+[![Actions Status](https://github.com/MomsFriendlyRobotCompany/linuxinfo/workflows/CheckPackage/badge.svg)](https://github.com/MomsFriendlyRobotCompany/linuxinfo/actions)
+![GitHub](https://img.shields.io/github/license/MomsFriendlyRobotCompany/linuxinfo)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/linuxinfo)
+![PyPI](https://img.shields.io/pypi/v/linuxinfo)
+
 **work in progress**
 
 Answers:
