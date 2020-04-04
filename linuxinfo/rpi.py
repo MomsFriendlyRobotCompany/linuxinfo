@@ -1,5 +1,9 @@
-#!/usr/bin/env python
-
+# -*- coding: utf-8 -*-
+##############################################
+# The MIT License (MIT)
+# Copyright (c) 2019 Kevin Walchko
+# see LICENSE for full details
+##############################################
 from collections import namedtuple
 import re
 from .helpers import read
