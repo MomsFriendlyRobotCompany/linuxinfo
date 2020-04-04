@@ -36,17 +36,6 @@ def linux_info():
         return None
 
     d = str2dict(osr, "=")
-    # d = {}
-    # o = osr.split("\n")
-    #
-    # for line in o:
-    #     try:
-    #         s = line.split("=")
-    #         d[s[0]] = s[1]
-    #     except IndexError:
-    #         # sometimes there is an empty line, so you can't
-    #         # split '' into 2 substrings
-    #         continue
 
     db = True if d["ID_LIKE"] == "debian" else False
 
