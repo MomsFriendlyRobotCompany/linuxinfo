@@ -27,6 +27,13 @@ RPiInfo = namedtuple("RPiInfo", "type processor memory revision manufacturer fla
 LinuxInfo = namedtuple("LinuxInfo", "distro distro_pretty debian_based version version_codename")
 ```
 
+## Commands
+
+- `get_temp()`
+- `get_ip()`
+- `reboot()`
+- `shutdown()`
+
 ## Example
 
 ```python
@@ -54,7 +61,8 @@ RPiInfo(type='4B', processor='BCM2711', memory='4GB', revision=1, manufacturer='
 
 | Date        | Version | Notes      |
 |-------------|---------|------------|
-| 2020 Dec 4  | 0.1.0   | changed name because it does more |
+| 2020 Oct 24 | 0.2.0   | updated for new processors and added commands |
+| 2019 Dec 4  | 0.1.0   | changed name because it does more |
 | 2019 Oct 27 | 0.0.3   | simple clean up |
 | 2019 Oct 27 | 0.0.1   | init            |
 
