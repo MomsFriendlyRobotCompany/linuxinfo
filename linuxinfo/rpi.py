@@ -8,11 +8,15 @@ from collections import namedtuple
 import re
 from .helpers import read
 from ast import literal_eval
-import subprocess
+from subprocess import Popen
 import socket
 
 """
+Documentation at:
+
 https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md
+
+
 uuuuuuuuFMMMCCCCPPPPTTTTTTTTRRRR
 
 Note: As of the 4.9 kernel, all Pis report BCM2835, even those with BCM2836,
@@ -43,7 +47,8 @@ def name(n):
         0xe: "3A+",
         0xf: "Internal use only",
         0x10: "CM3+",
-        0x11: "4B"
+        0x11: "4B",
+        14: "CM4"
     }
     val = 0b11111111 & (n >> 4)
     return rpi[val]
@@ -76,7 +81,8 @@ def memory(n):
         1: "512MB",
         2: "1GB",
         3: "2GB",
-        4: "4GB"
+        4: "4GB",
+        5: "8GB"
     }
     val = 0b111 & (n >> 20)
     return m[val]
