@@ -132,9 +132,9 @@ def pi_info():
 
 #########################################################################
 def get_ip():
-	"""
-	Returns the host IP address or None if address could not be discovered.
-	"""
+    """
+    Returns the host IP address or None if address could not be discovered.
+    """
     ip_addr = None
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
