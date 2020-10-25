@@ -8,7 +8,8 @@ from collections import namedtuple
 import re
 from .helpers import read
 from ast import literal_eval
-
+import subprocess
+import socket
 
 """
 https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md
@@ -122,3 +123,41 @@ def pi_info():
         return None
 
     return decode(n)
+
+#########################################################################
+def get_ip():
+	"""
+	Returns the host IP address or None if address could not be discovered.
+	"""
+    ip_addr = None
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+        s.connect(('<broadcast>', 0))
+        ip_addr=s.getsockname()[0]
+    except Exception:
+        pass
+    return ip_addr
+
+def restart():
+    command = "/usr/bin/sudo /sbin/shutdown -r now"
+    process = Popen(command.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    return output
+
+def shutdown():
+    command = "/usr/bin/sudo /sbin/shutdown -h now"
+    process = Popen(command.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    return output
+
+def get_temp():
+    command = "vcgencmd measure_temp"
+    process = Popen(command.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    return output
+
+def run_cmd(cmd):
+    process = Popen(cmd.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    return output
